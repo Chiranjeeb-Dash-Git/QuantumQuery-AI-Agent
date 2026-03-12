@@ -8,4 +8,4 @@ const nextConfig = {
   assetPrefix: '/QuantumQuery-AI-Agent/',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
