@@ -2,10 +2,19 @@
 
 ![Banner](./public/banner.png)
 
-<p align="center">
-  <a href="https://quantumquery-ai-agent.onrender.com/">💻 <strong>Live Demo</strong></a> • 
-  <a href="https://github.com/Chiranjeeb-Dash-Git/QuantumQuery-AI-Agent">🧬 <strong>Source Code</strong></a>
-</p>
+<div align="center">
+  <h3>✨ Next-Generation AI Assistant ✨</h3>
+  <br />
+  <a href="https://quantumquery-ai-agent.onrender.com/">
+    <img src="https://img.shields.io/badge/LAUNCH-LIVE_DEMO-8B5CF6?style=for-the-badge&logoColor=white&logo=render" height="50" alt="Live Demo" />
+  </a>
+  <br />
+  <br />
+  <p align="center">
+    <a href="https://github.com/Chiranjeeb-Dash-Git/QuantumQuery-AI-Agent">🧬 <strong>Source Code</strong></a> • 
+    <a href="https://quantumquery-ai-agent.onrender.com/">💻 <strong>Hosted App</strong></a>
+  </p>
+</div>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-16+-black?style=for-the-badge&logo=next.js" alt="Next.js" />
