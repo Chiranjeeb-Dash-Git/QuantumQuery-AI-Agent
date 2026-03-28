@@ -402,6 +402,16 @@ export default function Home() {
       </main>
 
       <footer className="mt-auto py-8 flex flex-col items-center gap-2 z-10">
+        <div className="flex items-center gap-4 mb-2">
+          <a
+            href="https://quantumquery-ai-agent.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-500 hover:text-violet-400 text-[10px] uppercase font-bold transition-colors"
+          >
+            Live Demo
+          </a>
+        </div>
         <div className="text-zinc-600 text-[10px] uppercase tracking-[0.3em] font-medium">
           AI Quantum Engine • v2.0-Alpha
         </div>

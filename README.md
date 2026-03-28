@@ -3,6 +3,11 @@
 ![Banner](./public/banner.png)
 
 <p align="center">
+  <a href="https://quantumquery-ai-agent.onrender.com/">💻 <strong>Live Demo</strong></a> • 
+  <a href="https://github.com/Chiranjeeb-Dash-Git/QuantumQuery-AI-Agent">🧬 <strong>Source Code</strong></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Next.js-16+-black?style=for-the-badge&logo=next.js" alt="Next.js" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-4.x-38bdf8?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Powered_By-Groq-orange?style=for-the-badge&logo=fastapi" alt="Groq" />
