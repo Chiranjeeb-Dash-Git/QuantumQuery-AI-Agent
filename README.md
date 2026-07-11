@@ -114,7 +114,8 @@ Open [http://localhost:3000](http://localhost:3000) to witness the quantum shift
 ## 👨‍💻 Author
 
 **Chiranjeeb Dash**
-- [LinkedIn](https://www.linkedin.com/in/chiranjeeb-dash/)
+- [LinkedIn](www.linkedin.com/in/
+chiranjeeb-dash-)
 - [GitHub](https://github.com/chiranjeebdash)
 
 ---
