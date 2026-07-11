@@ -156,7 +156,7 @@ export default function CodeReviewIDEPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-80px)] max-h-screen bg-black overflow-hidden relative selection:bg-violet-500/30">
+    <div className="flex flex-col h-screen bg-black overflow-hidden relative selection:bg-violet-500/30">
       {/* Futuristic Background */}
       <div className="absolute inset-0 bg-grid-white pointer-events-none opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
