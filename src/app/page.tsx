@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Sparkles, Send, Brain, Shield, Zap, AlertCircle, Loader2, Trash2, History, X, ExternalLink } from "lucide-react";
+import { Sparkles, Send, Brain, Shield, Zap, AlertCircle, Loader2, Trash2, History, X, ExternalLink, Code2 } from "lucide-react";
+import Link from "next/link";
 
 interface ChatHistoryItem {
   id: string;
@@ -84,7 +85,7 @@ export default function Home() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || data.details || "Failed to fetch from backend");
+        throw new Error(data.details || data.message || data.error || "Failed to fetch from backend");
       }
 
       setResult(data);
@@ -183,9 +184,15 @@ export default function Home() {
       <main className="w-full max-w-3xl z-10 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <div className="text-center space-y-4">
           <div className="flex flex-col items-center gap-4 mb-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400 text-xs font-medium tracking-wider uppercase">
-              <Zap className="w-3 h-3" />
-              Designed by Chiranjeeb Dash
+            <div className="flex gap-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400 text-xs font-medium tracking-wider uppercase">
+                <Zap className="w-3 h-3" />
+                Designed by Chiranjeeb Dash
+              </div>
+              <Link href="/code-review" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-medium tracking-wider uppercase hover:bg-cyan-500/20 transition-all">
+                <Code2 className="w-3 h-3" />
+                Open Code Review IDE
+              </Link>
             </div>
             {/* Model Selector */}
             <div className="flex gap-2 p-1 bg-white/5 border border-white/10 rounded-xl">
@@ -404,7 +411,7 @@ export default function Home() {
       <footer className="mt-auto py-8 flex flex-col items-center gap-2 z-10">
         <div className="flex items-center gap-4 mb-2">
           <a
-            href="https://quantumquery-ai-agent.onrender.com/"
+            href="https://quantum-query-ai-agent-89d5md1iv-chiranjeeb-dash-gits-projects.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-500 hover:text-violet-400 text-[10px] uppercase font-bold transition-colors"

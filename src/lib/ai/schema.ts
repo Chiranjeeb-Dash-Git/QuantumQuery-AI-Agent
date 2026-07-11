@@ -10,3 +10,33 @@ export const askrequestSchema = z.object({
 });
 
 export type AskResult = z.infer<typeof askrequestSchema>;
+
+export const staticAnalysisSchema = z.object({
+  type: z.enum(["error", "warning"]),
+  message: z.string(),
+  line: z.number().nullable(),
+});
+
+export const aiReviewSchema = z.object({
+  category: z.enum(["Bug", "Code Smell", "Performance", "Security", "Suggestion", "Refactoring"]),
+  severity: z.enum(["High", "Medium", "Low"]),
+  description: z.string(),
+  suggestion: z.string(),
+});
+
+export const metricsSchema = z.object({
+  linesOfCode: z.number(),
+  cyclomaticComplexity: z.number(),
+  functions: z.number(),
+  classes: z.number(),
+});
+
+export const codeReviewSchema = z.object({
+  chainOfThought: z.string().describe("Write out your step-by-step reasoning and deep architectural analysis BEFORE generating any bugs or code."),
+  staticAnalysis: z.array(staticAnalysisSchema),
+  aiReview: z.array(aiReviewSchema),
+  metrics: metricsSchema,
+  fullRefactoredCode: z.string().optional().describe("If a full code rewrite is requested or highly recommended, provide the complete updated source code here."),
+});
+
+export type ReviewResult = z.infer<typeof codeReviewSchema>;

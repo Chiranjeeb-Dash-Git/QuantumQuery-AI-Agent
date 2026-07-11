@@ -5,14 +5,14 @@
 <div align="center">
   <h3>✨ Next-Generation AI Assistant ✨</h3>
   <br />
-  <a href="https://quantumquery-ai-agent.onrender.com/">
-    <img src="https://img.shields.io/badge/LAUNCH-LIVE_DEMO-8B5CF6?style=for-the-badge&logoColor=white&logo=render" height="50" alt="Live Demo" />
+  <a href="https://quantum-query-ai-agent-89d5md1iv-chiranjeeb-dash-gits-projects.vercel.app/">
+    <img src="https://img.shields.io/badge/LAUNCH-LIVE_DEMO-000000?style=for-the-badge&logoColor=white&logo=vercel" height="50" alt="Live Demo" />
   </a>
   <br />
   <br />
   <p align="center">
     <a href="https://github.com/Chiranjeeb-Dash-Git/QuantumQuery-AI-Agent">🧬 <strong>Source Code</strong></a> • 
-    <a href="https://quantumquery-ai-agent.onrender.com/">💻 <strong>Hosted App</strong></a>
+    <a href="https://quantum-query-ai-agent-89d5md1iv-chiranjeeb-dash-gits-projects.vercel.app/">💻 <strong>Hosted App</strong></a>
   </p>
 </div>
 
