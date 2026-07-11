@@ -34,21 +34,23 @@
 
 ## 🚀 Key Features
 
+### 🧑‍💻 **AI Code Review Studio**
+A dedicated IDE experience using the **Monaco Editor**. 
+- **File Uploads**: Drag and drop or upload source files (`.ts, .py, .java`, etc.) to instantly load them into the editor.
+- **Static Analysis**: Identifies unused variables, missing imports, and syntax warnings.
+- **Principal Architect AI**: Leverages "Chain-of-Thought" reasoning to analyze code, find bugs, and suggest highly optimized, production-ready refactors.
+- **Code Metrics**: Calculates cyclomatic complexity, lines of code, and function counts automatically.
+
+### 🔐 **Secure Authentication & Database**
+- **JWT Authentication**: Fully protected code review API endpoints and custom-built beautiful Login/Signup pages.
+- **Prisma + SQLite**: A robust local database schema storing Users, Projects, Reviews, and Review Findings.
+- **History Dashboard**: A sliding drawer UI that allows users to seamlessly browse, click, and reload all past AI code reviews from the database.
+
 ### ⚡ **Multi-Model Orchestration**
-Switch between **Groq (Llama-3)**, **OpenAI (GPT-4o)**, and **Google (Gemini 2.0)** instantly from the dashboard. Each provider is optimized for structured reasoning and tool-calling.
+Switch between **Groq (Llama-3)**, **OpenAI (GPT-4o)**, and **Google (Gemini 2.0)** instantly. Each provider is optimized for structured reasoning and tool-calling using LangChain.
 
 ### 🔍 **Real-Time Web Intelligence**
 Integrated with **Tavily Search**, the agent breaks through training-cutoff barriers by fetching live web data, complete with clickable sources and hostname references.
-
-### 🏛️ **Structured Reasoning (LCEL)**
-Uses **LangChain Expression Language (LCEL)** to determine tool-usage requirements and synthesize final answers into validated JSON schemas for perfect front-end rendering.
-
-### 🧪 **Modern Quantum UI**
-A premium dashboard built with **Next.js 16 (App Router)** and **Tailwind CSS 4**.
-- **Interactive Model Selection**: Switch providers on-the-fly.
-- **Animated Blobs & Glassmorphism**: For a truly cybernetic aesthetic.
-- **Copy Insight**: One-click raw data export.
-- **Persistent Memory**: Local storage-based chat history.
 
 ---
 
@@ -56,11 +58,12 @@ A premium dashboard built with **Next.js 16 (App Router)** and **Tailwind CSS 4*
 
 | Layer | Technology |
 | :--- | :--- |
-| **Frontend** | Next.js 16, React 19, Lucide Icons |
+| **Frontend** | Next.js 16, React 19, Monaco Editor, Lucide Icons |
 | **Styling** | Tailwind CSS 4, Radix UI, Motion |
-| **Orchestration** | LangChain Core, LCEL |
-| **Search Engine** | Tavily Tool Integration |
-| **Providers** | Groq LPU, OpenAI, Google Gemini |
+| **Backend & DB** | Next.js API Routes, Prisma ORM, SQLite |
+| **Authentication** | JSON Web Tokens (JWT), bcryptjs |
+| **AI Orchestration** | LangChain Core, Zod Structured Outputs |
+| **AI Providers** | Groq LPU, OpenAI, Google Gemini |
 
 ---
 
