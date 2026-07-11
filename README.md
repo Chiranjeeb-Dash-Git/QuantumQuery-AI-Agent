@@ -32,6 +32,11 @@
 
 ---
 
+## 📖 About
+A full-stack Next.js & LangChain app where an AI agent autonomously performs live web searches for real-time questions (e.g., weather, news) or answers directly. It returns structured, source-backed JSON data, ensuring verifiable and reliable insights for the user.
+
+---
+
 ## 🚀 Key Features
 
 ### 🧑‍💻 **AI Code Review Studio**
