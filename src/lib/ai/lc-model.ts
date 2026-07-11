@@ -17,24 +17,25 @@ export function chatModel(requestedProvider: Provider): any {
 
     switch (provider) {
         case "OpenAI":
-            if (!process.env.OPENAI_API_KEY) throw new Error("OpenAI api key is not present!");
+            if (!process.env.OPENAI_API_KEY?.trim()) throw new Error("OpenAI api key is not present!");
             return new ChatOpenAI({
-                ...baseConfig,
-                model: "gpt-4o-mini",
+                model: "gpt-4o",
+                temperature: 0.1
             });
         case "Groq":
-            if (!process.env.GROQ_API_KEY) throw new Error("Groq api key is not present!");
+            if (!process.env.GROQ_API_KEY?.trim()) throw new Error("Groq api key is not present!");
             return new ChatGroq({
                 ...baseConfig,
-                model: "llama-3.3-70b-versatile",
-                apiKey: process.env.GROQ_API_KEY,
+                model: "llama-3.1-8b-instant",
+                temperature: 0.1,
+                apiKey: process.env.GROQ_API_KEY?.trim(),
             });
         case "Gemini":
-            if (!process.env.GEMINI_API_KEY) throw new Error("Gemini api key is not present!");
+            if (!process.env.GEMINI_API_KEY?.trim()) throw new Error("Gemini api key is not present!");
             return new ChatGoogleGenerativeAI({
-                ...baseConfig,
-                model: "gemini-flash-latest",
-                apiKey: process.env.GEMINI_API_KEY,
+                model: "gemini-1.5-pro",
+                temperature: 0.1,
+                apiKey: process.env.GEMINI_API_KEY?.trim(),
             });
         default:
             throw new Error(`Unsupported provider: ${provider}`);
