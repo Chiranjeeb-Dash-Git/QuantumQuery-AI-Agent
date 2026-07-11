@@ -189,10 +189,6 @@ export default function Home() {
                 <Zap className="w-3 h-3" />
                 Designed by Chiranjeeb Dash
               </div>
-              <Link href="/code-review" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-medium tracking-wider uppercase hover:bg-cyan-500/20 transition-all">
-                <Code2 className="w-3 h-3" />
-                Open Code Review IDE
-              </Link>
             </div>
             {/* Model Selector */}
             <div className="flex gap-2 p-1 bg-white/5 border border-white/10 rounded-xl">
@@ -214,9 +210,15 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
             AI Agent <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">Quantum</span> Query
           </h1>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto font-light">
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto font-light mb-4">
             Experience structured insights powered by Groq's lightning-fast inference.
           </p>
+          <div className="pt-2 pb-6">
+            <Link href="/code-review" className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-base md:text-lg font-bold tracking-wide shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40">
+              <Code2 className="w-6 h-6" />
+              Open Code Review Studio
+            </Link>
+          </div>
         </div>
 
         <div className="glass-card p-2 rounded-2xl border border-white/10 shadow-2xl transition-all duration-300 hover:border-white/20">
