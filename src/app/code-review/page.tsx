@@ -47,6 +47,11 @@ export default function CodeReviewIDEPage() {
     if (savedProvider) setProvider(savedProvider);
   }, []);
 
+  // Save provider to localStorage when changed
+  useEffect(() => {
+    localStorage.setItem("ai-provider", provider);
+  }, [provider]);
+
   const handleReview = async (context?: string) => {
     if (!code.trim()) return;
     
@@ -171,10 +176,24 @@ export default function CodeReviewIDEPage() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 to-cyan-600 flex items-center justify-center shadow-lg shadow-violet-500/20">
             <Activity className="h-5 w-5 text-white" />
           </div>
-          <h1 className="text-2xl font-black text-white tracking-tight">
+          <h1 className="text-2xl font-black text-white tracking-tight mr-4">
             Code Review <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">Studio</span>
           </h1>
-          <Badge className="ml-2 font-mono text-[10px] uppercase tracking-wider bg-violet-500/10 text-violet-400 border border-violet-500/20">{provider}</Badge>
+          <div className="flex gap-1 p-1 bg-white/5 border border-white/10 rounded-xl">
+            {["Groq", "OpenAI", "Gemini"].map((p) => (
+              <button
+                key={p}
+                onClick={() => setProvider(p)}
+                className={`px-3 py-1.5 rounded-lg text-[10px] uppercase tracking-wider font-bold transition-all ${
+                  provider === p 
+                  ? "bg-violet-600 text-white shadow-lg shadow-violet-500/20" 
+                  : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="flex items-center gap-3">
             <input 
