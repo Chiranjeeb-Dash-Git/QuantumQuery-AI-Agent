@@ -20,7 +20,8 @@ export function chatModel(requestedProvider: Provider): any {
             if (!process.env.OPENAI_API_KEY?.trim()) throw new Error("OpenAI api key is not present!");
             return new ChatOpenAI({
                 model: "gpt-4o",
-                temperature: 0.1
+                temperature: 0.1,
+                apiKey: process.env.OPENAI_API_KEY?.trim(),
             });
         case "Groq":
             if (!process.env.GROQ_API_KEY?.trim()) throw new Error("Groq api key is not present!");

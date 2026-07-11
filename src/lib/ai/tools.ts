@@ -7,7 +7,7 @@ import { z } from "zod";
  */
 export const tavilySearchTool = tool(
   async ({ query }) => {
-    const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY });
+    const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY?.trim() });
     const searchContext = await tvly.search(query, {
       searchDepth: "basic",
       maxResults: 5,
