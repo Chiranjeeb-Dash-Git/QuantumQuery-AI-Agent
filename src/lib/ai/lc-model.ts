@@ -27,8 +27,9 @@ export function chatModel(requestedProvider: Provider): any {
             if (!process.env.GROQ_API_KEY?.trim()) throw new Error("Groq api key is not present!");
             return new ChatGroq({
                 ...baseConfig,
-                model: "llama-3.1-8b-instant",
+                model: "llama-3.3-70b-versatile",
                 temperature: 0.1,
+                maxTokens: 8192,
                 apiKey: process.env.GROQ_API_KEY?.trim(),
             });
         case "Gemini":
