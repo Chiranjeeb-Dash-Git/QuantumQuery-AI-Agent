@@ -14,7 +14,7 @@ export type AskResult = z.infer<typeof askrequestSchema>;
 export const staticAnalysisSchema = z.object({
   type: z.enum(["error", "warning"]),
   message: z.string(),
-  line: z.number().nullable(),
+  line: z.number().optional(),
 });
 
 export const aiReviewSchema = z.object({
