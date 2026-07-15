@@ -35,7 +35,7 @@ export function chatModel(requestedProvider: Provider): any {
         case "Gemini":
             if (!process.env.GEMINI_API_KEY?.trim()) throw new Error("Gemini api key is not present!");
             return new ChatGoogleGenerativeAI({
-                model: "gemini-1.5-flash",
+                model: "gemini-flash-latest",
                 temperature: 0.1,
                 apiKey: process.env.GEMINI_API_KEY?.trim(),
             });
