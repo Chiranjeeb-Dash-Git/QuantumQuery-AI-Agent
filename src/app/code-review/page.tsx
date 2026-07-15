@@ -36,7 +36,7 @@ export default function CodeReviewIDEPage() {
   const [currentReview, setCurrentReview] = useState<ReviewResult | null>(null);
   const [chatPrompt, setChatPrompt] = useState("");
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', content: any}[]>([]);
-  const [provider, setProvider] = useState<string>("Groq");
+  const [provider, setProvider] = useState<string>("Gemini");
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const [historySidebarOpen, setHistorySidebarOpen] = useState(false);
   const [pastReviews, setPastReviews] = useState<any[]>([]);

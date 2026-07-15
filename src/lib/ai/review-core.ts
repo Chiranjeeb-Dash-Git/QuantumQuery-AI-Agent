@@ -2,7 +2,7 @@ import { chatModel, Provider } from "./lc-model";
 import { ReviewResult, codeReviewSchema } from "./schema";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 
-export async function reviewCodeStructure(code: string, provider: Provider = "Groq", promptContext?: string): Promise<ReviewResult> {
+export async function reviewCodeStructure(code: string, provider: Provider = "Gemini", promptContext?: string): Promise<ReviewResult> {
     const systemPrompt = `You are a Principal Software Engineer and Security Architect.
 Your job is to provide an ADVANCED, elite-level code review of the provided source code.
 

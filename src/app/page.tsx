@@ -21,7 +21,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatHistoryItem[]>([]);
   const [showHistory, setShowHistory] = useState(false);
-  const [provider, setProvider] = useState<string>("Groq");
+  const [provider, setProvider] = useState<string>("Gemini");
   const [copied, setCopied] = useState(false);
 
   // Load history from localStorage on mount

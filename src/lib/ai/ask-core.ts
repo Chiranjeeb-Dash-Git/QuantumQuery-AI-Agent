@@ -7,7 +7,7 @@ import { HumanMessage, SystemMessage, ToolMessage } from "@langchain/core/messag
  * Executes a structured query using LCEL-inspired flow and search tools.
  * It distinguishes between queries that need a web search and those that can be answered directly.
  */
-export async function askstructure(query: string, provider: Provider = "Groq"): Promise<AskResult> {
+export async function askstructure(query: string, provider: Provider = "Gemini"): Promise<AskResult> {
     const systemPrompt = `You are a helpful assistant that can answer questions in a structured format.
     You have access to a web search tool. Use it ONLY if the user's question requires real-time information, 
     current events, weather, or data beyond your knowledge cutoff.
