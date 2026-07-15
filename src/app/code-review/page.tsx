@@ -97,7 +97,7 @@ export default function CodeReviewIDEPage() {
           })
       }).then(res => {
           if (res.status === 401) {
-              window.location.href = "/login";
+              console.log("Not logged in; review not saved to history.");
           }
       }).catch(err => console.error("Failed to save to history", err));
       
@@ -137,7 +137,7 @@ export default function CodeReviewIDEPage() {
         try {
             const res = await fetch("/api/reviews");
             if (res.status === 401) {
-                window.location.href = "/login";
+                alert("Please login to view your review history.");
                 return;
             }
             if (res.ok) {
