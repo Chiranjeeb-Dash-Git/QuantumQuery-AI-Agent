@@ -13,7 +13,7 @@ export function chatModel(requestedProvider: Provider): any {
     else if (envProvider === "groq") provider = "Groq";
     else if (envProvider === "gemini") provider = "Gemini";
 
-    const baseConfig = { temperature: 0, maxRetries: 1 };
+    const baseConfig = { temperature: 0, maxRetries: 3 };
 
     switch (provider) {
         case "OpenAI":
@@ -35,7 +35,7 @@ export function chatModel(requestedProvider: Provider): any {
         case "Gemini":
             if (!process.env.GEMINI_API_KEY?.trim()) throw new Error("Gemini api key is not present!");
             return new ChatGoogleGenerativeAI({
-                model: "gemini-1.5-pro",
+                model: "gemini-1.5-pro-latest",
                 temperature: 0.1,
                 apiKey: process.env.GEMINI_API_KEY?.trim(),
             });
