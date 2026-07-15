@@ -26,7 +26,7 @@ Always format your response using the provided structured schema.`;
     
     // 60-second timeout to handle rate limits gracefully
     const timeoutPromise = new Promise<never>((_, reject) => {
-        setTimeout(() => reject(new Error("Request timed out after 60 seconds. This is usually caused by API rate limits (e.g. Too Many Requests). Please try a different provider or wait a minute.")), 60000);
+        setTimeout(() => reject(new Error("Request timed out after 120 seconds. This is usually caused by API rate limits (e.g. Too Many Requests) or very large files. Please try a different provider or wait a minute.")), 120000);
     });
 
     const executionPromise = async () => {
