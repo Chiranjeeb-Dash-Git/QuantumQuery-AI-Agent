@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -116,6 +116,1083 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ===================================
+   NEXUS THEME — PREMIUM DESIGN SYSTEM
+   =================================== */
+
+:root {
+  --obsidian: #0a0a0f;
+  --carbon: #12121a;
+  --charcoal: #1a1a24;
+  --platinum: #c8c8d0;
+  --gold: #d4a853;
+  --gold-light: #f0d078;
+  --emerald: #00ff88;
+  --emerald-glow: rgba(0, 255, 136, 0.3);
+  --purple: #6b3fa0;
+  --purple-glow: rgba(107, 63, 160, 0.4);
+  --amber: #ffaa33;
+  --glass-bg: rgba(18, 18, 26, 0.65);
+  --glass-border: rgba(200, 200, 208, 0.12);
+  --glass-border-bright: rgba(200, 200, 208, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  background: var(--obsidian);
+  color: var(--platinum);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ==============================
+   BACKGROUND LAYERS
+   ============================== */
+
+.nexus-gradient-ribbons {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nexus-ribbon {
+  position: absolute;
+  width: 200%;
+  height: 300px;
+  opacity: 0.15;
+  filter: blur(80px);
+  animation: ribbonFloat 20s ease-in-out infinite;
+}
+
+.nexus-ribbon-1 {
+  top: -100px;
+  left: -50%;
+  background: linear-gradient(135deg, transparent, var(--purple), var(--gold), transparent);
+  transform: rotate(-15deg);
+  animation-delay: 0s;
+}
+
+.nexus-ribbon-2 {
+  top: 40%;
+  left: -30%;
+  background: linear-gradient(135deg, transparent, var(--gold), var(--purple), transparent);
+  transform: rotate(10deg);
+  animation-delay: -7s;
+  opacity: 0.1;
+}
+
+.nexus-ribbon-3 {
+  bottom: -50px;
+  left: -40%;
+  background: linear-gradient(135deg, transparent, var(--purple), var(--gold), transparent);
+  transform: rotate(-5deg);
+  animation-delay: -14s;
+  opacity: 0.12;
+}
+
+@keyframes ribbonFloat {
+  0%, 100% { transform: rotate(-15deg) translateX(0); }
+  50% { transform: rotate(-15deg) translateX(5%); }
+}
+
+/* Glow orbs */
+.nexus-glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nexus-glow-orb-1 {
+  width: 400px; height: 400px;
+  background: rgba(107, 63, 160, 0.08);
+  top: 20%; right: 10%;
+  animation: orbFloat 15s ease-in-out infinite;
+}
+
+.nexus-glow-orb-2 {
+  width: 300px; height: 300px;
+  background: rgba(212, 168, 83, 0.06);
+  bottom: 20%; left: 5%;
+  animation: orbFloat 18s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -20px); }
+  66% { transform: translate(-20px, 30px); }
+}
+
+/* Code stream lines */
+.nexus-code-stream {
+  position: fixed;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nexus-code-stream::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--emerald), transparent);
+  opacity: 0.03;
+  animation: codeStream 8s linear infinite;
+}
+
+@keyframes codeStream {
+  0% { top: -200px; }
+  100% { top: 100%; }
+}
+
+/* Grid texture */
+.nexus-grid-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white' stroke-opacity='0.03'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+.nexus-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+}
+
+.nexus-nav.scrolled {
+  background: rgba(10, 10, 15, 0.92);
+  padding: 14px 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.nexus-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nexus-nav-logo-icon {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nexus-nav-logo-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), transparent);
+  opacity: 0.2;
+}
+
+.nexus-nav-logo-text {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
+}
+
+.nexus-nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nexus-nav-links a {
+  color: rgba(200, 200, 208, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nexus-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nexus-nav-links a:hover { color: var(--gold-light); }
+.nexus-nav-links a:hover::after { width: 100%; }
+
+.nexus-nav-cta {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--gold), #b8922e);
+  color: var(--obsidian);
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.2);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+}
+
+.nexus-nav-cta:hover {
+  box-shadow: 0 0 30px rgba(212, 168, 83, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Mobile nav toggle */
+.nexus-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nexus-nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--platinum);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+
+.nexus-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 60px 80px;
+  gap: 60px;
+  position: relative;
+}
+
+.nexus-hero-left {
+  flex: 1;
+  max-width: 560px;
+}
+
+.nexus-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(212, 168, 83, 0.1);
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.nexus-hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.nexus-hero-title {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.nexus-hero-title .line1 {
+  display: block;
+  color: var(--platinum);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.55em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.nexus-hero-title .gold-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, #c49530 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  position: relative;
+}
+
+.nexus-hero-title .gold-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0.3;
+}
+
+.nexus-hero-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(200, 200, 208, 0.6);
+  margin-bottom: 36px;
+  max-width: 460px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Status badges */
+.nexus-status-badges {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.nexus-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 6px;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--emerald);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.nexus-status-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.05), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.nexus-status-badge .badge-dot {
+  width: 6px; height: 6px;
+  background: var(--emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--emerald-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.nexus-status-badge.amber {
+  background: rgba(255, 170, 51, 0.06);
+  border-color: rgba(255, 170, 51, 0.2);
+  color: var(--amber);
+}
+
+.nexus-status-badge.amber .badge-dot {
+  background: var(--amber);
+  box-shadow: 0 0 8px rgba(255, 170, 51, 0.3);
+}
+
+/* Hero CTA */
+.nexus-hero-actions {
+  display: flex;
+  gap: 16px;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.nexus-btn-primary {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--gold), #b8922e);
+  color: var(--obsidian);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(212, 168, 83, 0.25);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nexus-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nexus-btn-primary:hover::before { left: 100%; }
+.nexus-btn-primary:hover {
+  box-shadow: 0 4px 30px rgba(212, 168, 83, 0.4);
+  transform: translateY(-2px);
+}
+
+.nexus-btn-secondary {
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--platinum);
+  border: 1px solid var(--glass-border-bright);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nexus-btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(212, 168, 83, 0.05);
+}
+
+/* ==============================
+   HERO RIGHT — INTERFACE MOCKUP
+   ============================== */
+
+.nexus-hero-right {
+  flex: 1;
+  max-width: 640px;
+  position: relative;
+  perspective: 1200px;
+  animation: fadeInRight 1s ease 0.3s both;
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.nexus-interface-mockup {
+  position: relative;
+  transform: rotateY(-8deg) rotateX(4deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.nexus-interface-mockup:hover {
+  transform: rotateY(-4deg) rotateX(2deg);
+}
+
+.nexus-mockup-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; height: 120%;
+  background: radial-gradient(ellipse, rgba(107, 63, 160, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.nexus-mockup-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px) saturate(1.3);
+  -webkit-backdrop-filter: blur(30px) saturate(1.3);
+  border: 1px solid var(--glass-border-bright);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 0.5px rgba(200, 200, 208, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(107, 63, 160, 0.1),
+    inset 0 1px 0 rgba(200, 200, 208, 0.08);
+}
+
+.nexus-mockup-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(10, 10, 15, 0.6);
+  border-bottom: 1px solid var(--glass-border);
+  gap: 8px;
+}
+
+.nexus-toolbar-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.nexus-toolbar-dot.red { background: #ff5f57; }
+.nexus-toolbar-dot.yellow { background: #ffbd2e; }
+.nexus-toolbar-dot.green { background: #28c840; }
+
+.nexus-toolbar-title {
+  margin-left: 12px;
+  font-size: 11px;
+  color: rgba(200, 200, 208, 0.4);
+  letter-spacing: 1px;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
+}
+
+.nexus-mockup-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+}
+
+/* Chat Panel */
+.nexus-chat-panel {
+  padding: 20px;
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nexus-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.nexus-chat-header-icon {
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, var(--purple), #8b5fc7);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nexus-chat-header-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(200, 200, 208, 0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nexus-chat-message {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  animation: msgAppear 0.5s ease both;
+}
+
+.nexus-chat-message.ai {
+  background: rgba(107, 63, 160, 0.12);
+  border: 1px solid rgba(107, 63, 160, 0.2);
+  color: rgba(200, 200, 208, 0.85);
+  border-bottom-left-radius: 4px;
+}
+
+.nexus-chat-message.user {
+  background: rgba(212, 168, 83, 0.08);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  color: rgba(200, 200, 208, 0.85);
+  margin-left: 20px;
+  border-bottom-right-radius: 4px;
+}
+
+.nexus-chat-message .msg-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.nexus-chat-message.ai .msg-label { color: var(--purple); }
+.nexus-chat-message.user .msg-label { color: var(--gold); }
+
+.nexus-chat-input-mock {
+  margin-top: auto;
+  padding: 10px 14px;
+  background: rgba(10, 10, 15, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-size: 11px;
+  color: rgba(200, 200, 208, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nexus-chat-input-mock .cursor-blink {
+  width: 2px; height: 14px;
+  background: var(--emerald);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Code Diff Panel */
+.nexus-diff-panel {
+  padding: 20px;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  overflow: hidden;
+}
+
+.nexus-diff-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.nexus-diff-header-icon {
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, var(--emerald), #00cc6a);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nexus-diff-header-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(200, 200, 208, 0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nexus-diff-line {
+  display: flex;
+  gap: 8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  animation: diffAppear 0.4s ease both;
+}
+
+.nexus-diff-line .line-num {
+  color: rgba(200, 200, 208, 0.25);
+  min-width: 24px;
+  text-align: right;
+  user-select: none;
+}
+
+.nexus-diff-line .line-content {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nexus-diff-line.added {
+  background: rgba(0, 255, 136, 0.08);
+  border-left: 2px solid var(--emerald);
+}
+
+.nexus-diff-line.added .line-content { color: var(--emerald); }
+
+.nexus-diff-line.removed {
+  background: rgba(255, 80, 80, 0.08);
+  border-left: 2px solid #ff5050;
+}
+
+.nexus-diff-line.removed .line-content {
+  color: #ff6b6b;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.nexus-diff-line.context .line-content { color: rgba(200, 200, 208, 0.5); }
+
+.nexus-diff-line.highlighted {
+  background: rgba(255, 170, 51, 0.08);
+  border-left: 2px solid var(--amber);
+}
+
+.nexus-diff-line.highlighted .line-content { color: var(--amber); }
+
+.nexus-diff-line .keyword { color: #c678dd; }
+.nexus-diff-line .fn { color: #61afef; }
+.nexus-diff-line .string { color: #98c379; }
+.nexus-diff-line .comment { color: rgba(200, 200, 208, 0.3); font-style: italic; }
+
+/* ==============================
+   SCROLL INDICATOR
+   ============================== */
+
+.nexus-scroll-indicator {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInUp 1s ease 1s both;
+  transition: opacity 0.3s;
+}
+
+.nexus-scroll-indicator span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(200, 200, 208, 0.3);
+}
+
+.nexus-scroll-mouse {
+  width: 24px; height: 38px;
+  border: 1.5px solid rgba(200, 200, 208, 0.2);
+  border-radius: 12px;
+  position: relative;
+}
+
+.nexus-scroll-mouse::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 3px; height: 8px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { opacity: 1; top: 6px; }
+  100% { opacity: 0; top: 22px; }
+}
+
+/* ==============================
+   FEATURES SECTION
+   ============================== */
+
+.nexus-features {
+  padding: 120px 60px;
+  position: relative;
+}
+
+.nexus-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nexus-section-label::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--gold);
+}
+
+.nexus-section-title {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--platinum);
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.nexus-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.nexus-feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 36px 28px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nexus-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border-bright), transparent);
+}
+
+.nexus-feature-card:hover {
+  border-color: rgba(212, 168, 83, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.nexus-feature-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.15), rgba(107, 63, 160, 0.15));
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nexus-feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--platinum);
+  margin-bottom: 12px;
+}
+
+.nexus-feature-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(200, 200, 208, 0.5);
+}
+
+/* ==============================
+   STATS SECTION
+   ============================== */
+
+.nexus-stats {
+  padding: 80px 60px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.nexus-stat-item {
+  text-align: center;
+}
+
+.nexus-stat-value {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.nexus-stat-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(200, 200, 208, 0.4);
+}
+
+/* ==============================
+   CHAT SECTION (preserved functionality)
+   ============================== */
+
+.nexus-chat-section {
+  padding: 100px 60px;
+  position: relative;
+}
+
+.nexus-chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nexus-chat-input-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 8px;
+  transition: all 0.3s;
+}
+
+.nexus-chat-input-card:focus-within {
+  border-color: rgba(212, 168, 83, 0.3);
+  box-shadow: 0 0 30px rgba(212, 168, 83, 0.08);
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+.nexus-footer {
+  padding: 40px 60px;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(200, 200, 208, 0.3);
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes msgAppear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes diffAppear {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Reveal on scroll */
+.nexus-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexus-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing indicator */
+.nexus-typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.nexus-typing-indicator span {
+  width: 6px; height: 6px;
+  background: var(--purple);
+  border-radius: 50%;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.nexus-typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.nexus-typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 1024px) {
+  .nexus-hero {
+    flex-direction: column;
+    padding: 120px 30px 60px;
+    gap: 40px;
+  }
+  .nexus-hero-left { max-width: 100%; }
+  .nexus-hero-right { max-width: 100%; }
+  .nexus-features-grid { grid-template-columns: 1fr 1fr; }
+  .nexus-mockup-body { grid-template-columns: 1fr; }
+  .nexus-chat-panel { border-right: none; border-bottom: 1px solid var(--glass-border); }
+}
+
+@media (max-width: 768px) {
+  .nexus-nav { padding: 16px 20px; }
+  .nexus-nav-links { display: none; }
+  .nexus-nav-toggle { display: flex; }
+  .nexus-hero { padding: 100px 20px 40px; }
+  .nexus-features { padding: 80px 20px; }
+  .nexus-features-grid { grid-template-columns: 1fr; }
+  .nexus-stats { gap: 30px; padding: 60px 20px; }
+  .nexus-footer { padding: 30px 20px; flex-direction: column; gap: 12px; text-align: center; }
+  .nexus-chat-section { padding: 60px 20px; }
+}
+
+/* ==============================
+   TAILWIND UTILITY LAYERS
+   ============================== */
+
 @layer utilities {
   .glass {
     @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
@@ -131,6 +1208,21 @@
 
   .bg-grid-white {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white' stroke-opacity='0.05'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 168, 83, 0.3);
   }
 }
 
@@ -151,21 +1243,4 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
-}
-
-@layer utilities {
-  /* Custom Scrollbar */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 4px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.3);
-  }
 }
